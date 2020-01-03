@@ -15,7 +15,7 @@ jobs:
           # Gradle tasks to run - If you want to run ./gradlew assemble, specify assemble here. 
           gradleTasks: assemble# optional, default is assembleDebug
       - name: Android NDK toolchain Setup
-      - uses: ravinderjangra/android-ndk-toolchain-setup@0.1
+        uses: ravinderjangra/android-ndk-toolchain-setup@0.1
         with:
           api: 16
           arch: armbi-v8a
