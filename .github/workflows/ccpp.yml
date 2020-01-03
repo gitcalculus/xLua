@@ -13,7 +13,7 @@ jobs:
       - uses: msfjarvis/setup-android@0.2
         with:
           # Gradle tasks to run - If you want to run ./gradlew assemble, specify assemble here. 
-          gradleTasks: assemble# optional, default is assembleDebug
+          gradleTasks: assemble # optional, default is assembleDebug
       - name: Android NDK toolchain Setup
         uses: ravinderjangra/android-ndk-toolchain-setup@0.1
         with:
@@ -22,3 +22,25 @@ jobs:
           install-location: ../
       - name: build_android_lua53
         run: ./build/make_android_lua53.sh
+        
+      - name: Upload To Github Release
+        uses: xresloader/upload-to-github-release@v1.1.0
+        with:
+          # The files or file patterns to upload. You can upload multiple files by split them by semicolon. You can use the glob pattern to find the files.
+          file: ./build/build_android_v7a/libxlua.so # default is 
+          # If you need to overwrite existing files, add overwrite: true to the with.
+          overwrite: true # optional, default is false
+          # The resultant deployment is a draft Release that only repository collaborators can see. This gives you an opportunity to examine and edit the draft release.
+          draft: true# optional, default is true
+          # The resultant deployment is a Prerelease. This gives you an opportunity to examine and edit the prerelease.
+          prerelease: false# optional, default is false
+          # With tags: true, your Releases deployment will trigger if and only if the build is a tagged build.
+          tags: false # optional, default is false
+          # Only work on these branches(splited by semicolon), set to nothing to accept all branches.
+          branches: master # optional, default is 
+          # With verbose: true, be verbose.
+          verbose: true # optional, default is false
+          # Set custom tag name.
+          tag_name: build_android # optional, default is 
+          # If try to update latest release.
+          update_latest_release: false # optional, default is false
