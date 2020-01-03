@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: setup-android
-      uses: msfjarvis/setup-android@0.2
-      run: ./build/make_android_lua53.sh
+      - uses: msfjarvis/setup-android@0.2
+      - name: build_android_lua53
+        run: ./build/make_android_lua53.sh
