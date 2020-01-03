@@ -10,10 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: msfjarvis/setup-android@0.2
-        with:
-          # Gradle tasks to run - If you want to run ./gradlew assemble, specify assemble here. 
-          gradleTasks: assemble # optional, default is assembleDebug
+      - name: Gradle Android
+        uses: Raul6469/android-gradle-action@1.0.0
       - name: Android NDK toolchain Setup
         uses: ravinderjangra/android-ndk-toolchain-setup@0.1
         with:
