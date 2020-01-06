@@ -18,6 +18,7 @@ jobs:
         with:
           api: 16
           arch: armeabi-v7a
+          install-location: ./build/cmake/android.toolchain.cmake
         
       - name: Upload To Github Release
         uses: xresloader/upload-to-github-release@v1.1.0
